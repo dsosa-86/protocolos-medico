@@ -3,7 +3,7 @@ name: Build macOS App
 on:
   push:
     branches:
-      - main  # Se ejecutará en cada push a la rama main
+      - main  # Se ejecutará en cada push a la rama main ok
   pull_request:
 
 jobs:
