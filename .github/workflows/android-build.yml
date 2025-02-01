@@ -26,13 +26,18 @@ jobs:
         sudo pip3 install --upgrade cython
         sudo pip3 install buildozer
 
+    - name: Accept Android SDK licenses
+      run: |
+        yes | sdkmanager --licenses
+        sdkmanager "build-tools;36.0.0-rc4"
+
     - name: Build the APK
       run: |
         buildozer init
         buildozer android debug
 
     - name: Archive release APK
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v2
       with:
         name: release-apk
         path: bin/*.apk
@@ -42,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Download release APK
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: release-apk
 
