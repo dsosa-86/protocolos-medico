@@ -3,7 +3,7 @@ name: Build macOS App
 on:
   push:
     branches:
-      - protocolos_medicos_visual_kivy  # Cambia si usas otra rama principal
+      - main  # Cambia si usas otra rama principal
   pull_request:
 
 jobs:
