@@ -30,7 +30,7 @@ jobs:
           pyinstaller --onefile --windowed main.py  # Ajusta el nombre de tu archivo principal
 
       - name: Subir ejecutable como artefacto
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: kivy-macOS-build
           path: dist/main  # Cambia 'main' si el binario tiene otro nombre
