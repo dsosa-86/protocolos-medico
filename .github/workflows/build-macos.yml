@@ -33,4 +33,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: kivy-macOS-build
-          path: dist/protocolos_medicos_visual_kivy  # Cambia 'main' si el binario tiene otro nombre
+          path: dist/main  # Cambia 'main' si el binario tiene otro nombre
