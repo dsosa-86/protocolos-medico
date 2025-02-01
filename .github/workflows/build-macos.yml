@@ -1,29 +1,36 @@
 name: Build macOS App
 
-on: [push]
+on:
+  push:
+    branches:
+      - protocolos_medicos_visual_kivy  # Cambia si usas otra rama principal
+  pull_request:
 
 jobs:
   build:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Install pyinstaller
-      run: |
-        pip install pyinstaller
-    - name: Build project
-      run: |
-        pyinstaller --onefile --windowed protocolos_medicos_visual_kivy.py
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: build
-        path: dist/protocolo medico
+      - name: Clonar el repositorio
+        uses: actions/checkout@v2
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Compilar con PyInstaller
+        run: |
+          pyinstaller --onefile --windowed protocolos_medicos_visual_kivy.py  # Ajusta el nombre de tu archivo principal
+
+      - name: Subir ejecutable como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: kivy-macOS-build
+          path: dist/protocolos_medicos_visual_kivy  # Cambia 'main' si el binario tiene otro nombre
