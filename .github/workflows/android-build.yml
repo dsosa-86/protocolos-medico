@@ -31,10 +31,10 @@ jobs:
         mkdir -p $HOME/.android
         touch $HOME/.android/repositories.cfg
         wget https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip
-        mkdir -p $HOME/android-sdk/cmdline-tools
-        unzip commandlinetools-linux-8092744_latest.zip -d $HOME/android-sdk/cmdline-tools
-        yes | $HOME/android-sdk/cmdline-tools/tools/bin/sdkmanager --licenses
-        $HOME/android-sdk/cmdline-tools/tools/bin/sdkmanager "build-tools;36.0.0-rc4"
+        mkdir -p $HOME/android-sdk/cmdline-tools/latest
+        unzip commandlinetools-linux-8092744_latest.zip -d $HOME/android-sdk/cmdline-tools/latest
+        yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
+        $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager "build-tools;36.0.0-rc4"
 
     - name: Build the APK
       run: |
