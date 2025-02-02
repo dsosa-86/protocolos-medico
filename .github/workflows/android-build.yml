@@ -35,7 +35,7 @@ jobs:
         unzip commandlinetools-linux-8092744_latest.zip -d $HOME/android-sdk/cmdline-tools
         mv $HOME/android-sdk/cmdline-tools/cmdline-tools $HOME/android-sdk/cmdline-tools/latest
         yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
-        $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager "build-tools;36.0.0-rc4"
+        $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager "tools" "platform-tools" "build-tools;36.0.0-rc4"
 
     - name: Build the APK
       run: |
