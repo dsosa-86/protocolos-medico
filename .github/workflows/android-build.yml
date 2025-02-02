@@ -36,7 +36,7 @@ jobs:
         mv $HOME/android-sdk/cmdline-tools/cmdline-tools $HOME/android-sdk/cmdline-tools/latest
         yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses
         yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager --install "build-tools;36.0.0-rc4" "platform-tools" "platforms;android-30" "sources;android-30"
-        yes | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;28.0.3"
+        yes | $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager "build-tools;28.0.3"
 
     - name: Build the APK
       run: |
