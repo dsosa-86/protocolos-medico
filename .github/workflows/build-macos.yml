@@ -4,7 +4,11 @@ on:
   push:
     branches:
       - main  # Se ejecutará en cada push a la rama main ok
+    paths:
+      - .github/workflows/build-macos.yml
   pull_request:
+    paths:
+      - .github/workflows/build-macos.yml
 
 jobs:
   build:
