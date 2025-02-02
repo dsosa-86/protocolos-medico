@@ -23,8 +23,7 @@ jobs:
       run: |
         sudo apt update
         sudo apt install -y build-essential git python3-pip openjdk-8-jdk unzip zlib1g-dev
-        sudo pip3 install --upgrade cython
-        sudo pip3 install buildozer
+        pip install -r requirements.txt
 
     - name: Install Android SDK
       run: |
@@ -42,6 +41,7 @@ jobs:
     - name: Build the APK
       run: |
         buildozer init
+        echo "android.accept_sdk_license = True" >> buildozer.spec
         buildozer android debug
 
     - name: Archive release APK
