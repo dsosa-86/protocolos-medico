@@ -2,3 +2,4 @@ kivy==2.1.0
 reportlab==3.6.12
 pandas==1.5.3
 pyinstaller==4.5.1
+buildozer
